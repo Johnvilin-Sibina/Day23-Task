@@ -14,6 +14,18 @@
     Copy the URL and paset it in the browser to run the application.
   </li>
 </ol>
+<h3>Components:</h3>
+<ol>
+  <li>
+    The file App.jsx is the where the parent component App is created. 
+  </li>
+  <li>
+   The file Card.jsx is where the child component Card, which displays the product cards is created.  
+  </li>
+  <li>
+    The file CartItem.jsx is where the child component CartItem, which displays the items in the Cart is created.
+  </li>
+</ol>
 
 <h3>Requirements:</h3>
 <ol>
