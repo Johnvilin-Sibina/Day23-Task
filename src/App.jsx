@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { BsCartFill } from "react-icons/bs";
 import "/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "/node_modules/bootstrap/dist/css/bootstrap.css";
-import "./App.css";
-import Card from "./Card";
-import CartItem from "./CartItem";
+import Card from "./Components/Card";
+import NavBar from "./Components/NavBar";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 function App() {
   //Details about the products are listed in the following array products
   let products = [
@@ -121,149 +121,10 @@ function App() {
 
   return (
     <>
-      {/* To create a navigation bar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container px-4 px-lg-5">
-          <a className="navbar-brand" href="#!">
-            Start Bootstrap
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#!">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#!">
-                  About
-                </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  id="navbarDropdown"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Shop
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a className="dropdown-item" href="#!">
-                      All Products
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#!">
-                      Popular Items
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#!">
-                      New Arrivals
-                    </a>
-                  </li>
-                </ul>
-              </li>
 
-              {/* <select name="category" id="category" className="dropdown">
-                <option value="shop">Shop</option>
-                <option value="allProducts">All products</option>
-                <option value="popularItems">Popular Items</option>
-                <option value="newArrivals">New Arrivals</option>
-              </select> */}
-            </ul>
-            <>
-              <button
-                type="button"
-                className="btn btn-outline-dark"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                <BsCartFill size={20}/>{"   "}
-                Cart{"   "}
-                <span className="badge bg-dark text-white ms-1 rounded-pill">
-                  {count}
-                </span>
-              </button>
-              <div
-                className="modal fade"
-                id="exampleModal"
-                tabIndex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h1 className="modal-title fs-5" id="exampleModalLabel">
-                        Items in Cart
-                      </h1>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div className="modal-body">
-                      {cart.length == 0 ? (
-                        <div>No Items in Cart</div>
-                      ) : (
-                        <>
-                          <ol className="list-group list-group-numbered">
-                            {cart.map((item, index) => {
-                              return <CartItem key={index} item={item} />;
-                            })}
-                          </ol>
-                          <h3>Total : Rs.{total}</h3>
-                        </>
-                      )}
-                    </div>
-                    <div className="modal-footer">
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </>
-          </div>
-        </div>
-      </nav>
-      {/* To create a header  */}
-      <header className="bg-dark py-5">
-        <div className="container px-4 px-lg-5 my-5">
-          <div className="text-center text-white">
-            <h1 className="display-4 fw-bolder">Shop in style</h1>
-            <p className="lead fw-normal text-white-50 mb-0">
-              With this shop hompage template
-            </p>
-          </div>
-        </div>
-      </header>
+<NavBar count={count} cart={cart} total={total}/>
+     <Header />
+      
       <section className="py-5">
         <div className="container px-4 px-lg-5 mt-5">
           {/* The array products is looped using map and the products in it are passed as an attribute
@@ -283,13 +144,7 @@ function App() {
           </div>
         </div>
       </section>
-      <footer className="py-5 bg-dark">
-        <div className="container">
-          <p className="m-0 text-center text-white">
-            Copyright © Your Website 2023
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
